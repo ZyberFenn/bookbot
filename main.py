@@ -6,7 +6,10 @@ def get_book_text(path):
     return contents
 
 def main():
-    txt_path = "./books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    txt_path = sys.argv[1]
     book_txt = get_book_text(txt_path)
     word_count = count_words(book_txt)
     char_dict = count_characters(book_txt)
